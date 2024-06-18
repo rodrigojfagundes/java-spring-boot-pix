@@ -8,7 +8,7 @@
 		<version>3.1.7</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>io.github.rodrigojfagundes</groupId>
+	<groupId>com.leminhosdev</groupId>
 	<artifactId>payment-system</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>payment-system</name>
