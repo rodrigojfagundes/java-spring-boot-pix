@@ -1,0 +1,3 @@
+Aqui ficava o certificado gerado pelo Banco EFI.
+
+Por motivos de segurança eu removi ele antes de enviar este projeto para o GitHub.

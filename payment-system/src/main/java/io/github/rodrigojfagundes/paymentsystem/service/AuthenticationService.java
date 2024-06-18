@@ -10,7 +10,7 @@ import io.github.rodrigojfagundes.paymentsystem.repository.UserRepository;
 
 @Service
 public class AuthenticationService implements UserDetailsService {
-	
+
     @Autowired
     private UserRepository userRepository;
 

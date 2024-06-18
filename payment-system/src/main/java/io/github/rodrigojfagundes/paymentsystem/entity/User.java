@@ -49,19 +49,17 @@ public class User implements UserDetails {
 	public void setEnabled(boolean enabled) {
 		this.enabled = enabled;
 	}
+	
+	private String role;
 
 	@Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
 
     private String name;
-
     private String email;
-
     private String password;
-
     private String verificationCode;
-
     private boolean enabled;
     
     public User(Long id, String name, String email, String password, String verificationCode, boolean enabled) {
@@ -73,16 +71,27 @@ public class User implements UserDetails {
         this.enabled = enabled;
     }
 
-    public User(String name, String email, String password) {
+    public User(String name, String email, String password, String role) {
         this.name = name;
         this.email = email;
         this.password = password;
+        this.role = role;
     }
+    
+    
+    public String getRole() {
+		return role;
+	}
 
+	public void setRole(String role) {
+		this.role = role;
+	}
+
+	//construtor vazio
     public User() {
     }
 
-    @Override
+	@Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return null;
     }

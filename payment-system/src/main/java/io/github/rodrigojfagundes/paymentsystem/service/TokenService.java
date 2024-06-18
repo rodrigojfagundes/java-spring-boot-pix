@@ -34,6 +34,8 @@ public class TokenService {
         }
     }
 
+	//metodo para validar se o token é verdadeiro
+	//
     public String validateToken(String token){
         try{
             Algorithm algorithm = Algorithm.HMAC256(secret);

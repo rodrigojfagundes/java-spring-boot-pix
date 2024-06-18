@@ -12,6 +12,7 @@ import io.github.rodrigojfagundes.paymentsystem.util.RandomString;
 
 import java.io.UnsupportedEncodingException;
 
+//Class de servicos para Users
 @Service
 public class UserService {
 
@@ -33,7 +34,6 @@ public class UserService {
             String randomCode = RandomString.generateRandomString(64);
             user.setVerificationCode(randomCode);
             user.setEnabled(false);
-
             User savedUser = userRepository.save(user);
 
             UserResponse userResponse = new UserResponse(
@@ -41,12 +41,12 @@ public class UserService {
                     savedUser.getName(),
                     savedUser.getEmail(),
                     savedUser.getPassword());
+
             mailService.sendVerificationEmail(user);
-            
             return userResponse;
         }
     }
-    
+
     public boolean verify(String verificationCode){
         User user = userRepository.findByVerificationCode(verificationCode);
 
@@ -60,4 +60,5 @@ public class UserService {
             return true;
         }
     }
+
 }

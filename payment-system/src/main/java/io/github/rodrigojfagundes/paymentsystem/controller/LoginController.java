@@ -15,7 +15,7 @@ import io.github.rodrigojfagundes.paymentsystem.entity.User;
 import io.github.rodrigojfagundes.paymentsystem.service.TokenService;
 
 @RestController
-@RequestMapping("/auth")
+@RequestMapping("/api/v1/auth")
 public class LoginController {
 
     @Autowired
@@ -29,7 +29,7 @@ public class LoginController {
  
     	UsernamePasswordAuthenticationToken usernamePassword = new UsernamePasswordAuthenticationToken(
                 authenticationRequest.email(), authenticationRequest.password()
-        );		
+        );    	
         var auth = authenticationManager.authenticate(usernamePassword);
         var token = tokenService.generateToken( (User) auth.getPrincipal());
 

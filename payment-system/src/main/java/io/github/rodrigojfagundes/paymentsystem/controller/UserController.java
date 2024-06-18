@@ -20,7 +20,7 @@ import io.github.rodrigojfagundes.paymentsystem.service.UserService;
 import jakarta.mail.MessagingException;
 import jakarta.validation.Valid;
 @RestController
-@RequestMapping("/user")
+@RequestMapping("/api/v1/user")
 public class UserController {
 
     @Autowired
@@ -35,13 +35,12 @@ public class UserController {
     @PostMapping("/register")
     public ResponseEntity<UserResponse> registerUser(@RequestBody @Valid 
     		UserCreateRequest userCreateRequest) throws MessagingException, UnsupportedEncodingException {
-
     	User user = userCreateRequest.toModel();
         UserResponse userSaved = userService.registerUser(user);
-        
+
         return ResponseEntity.ok().body(userSaved);
     }
-   
+    
     @GetMapping("/verify")
     public String verifyUser(@Param("code") String code){
         if(userService.verify(code)){

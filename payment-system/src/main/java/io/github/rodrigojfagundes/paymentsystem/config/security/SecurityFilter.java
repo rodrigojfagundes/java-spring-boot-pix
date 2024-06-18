@@ -31,12 +31,11 @@ public class SecurityFilter extends OncePerRequestFilter {
                                     FilterChain filterChain) throws ServletException, IOException {
 
 		// TODO Auto-generated method stub
-		
+
         var token = this.recoverToken(request);
         if (token != null){
             var subject = tokenService.validateToken(token);
             UserDetails user = userRepository.findByEmail(subject);
-
             var authentication = new UsernamePasswordAuthenticationToken(
                     user, null, user.getAuthorities()
             );
